@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadingIndicatorGageData.style.display = 'block';
 
     // Gage control json file URL
-    const jsonFileURL = 'https://wm.mvs.ds.usace.army.mil/php-data-api/public/json/gage_control.json';
+    const jsonFileURL = 'https://wm.mvs.ds.usace.army.mil/php_data_api/public/json/gage_control.json';
     console.log('jsonFileURL: ', jsonFileURL);
     
     // Fetch JSON data from the specified URL
@@ -133,7 +133,7 @@ function fetchAndUpdateData(project_id, tsid_pool, tsid_tw, tsid_hinge, tsid_tai
     const queryString = Object.keys(dataToSend).map(key => key + '=' + dataToSend[key]).join('&');
 
     // Make an AJAX request to the PHP script, passing all the variables
-    const url = `https://wm.mvs.ds.usace.army.mil/php-data-api/public/get_ld_gate_summary.php?${queryString}`;
+    const url = `https://wm.mvs.ds.usace.army.mil/php_data_api/public/get_ld_gate_summary.php?${queryString}`;
     console.log('url :', url);
 
     fetch(url)
