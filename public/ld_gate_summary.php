@@ -17,14 +17,6 @@ if (ini_get('date.timezone')) {
 }
 ?>
 
-<?php
-$now =  date('Y-m-d H:i');
-$time   = strtotime($now);
-$current_date =  date('m-d-Y');
-$current_date_time_format =  date('m-d-Y H:i');
-$current_date_time   = date("Y-m-d H:i", $time);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -63,14 +55,12 @@ $current_date_time   = date("Y-m-d H:i", $time);
 						<div id="topPane" class="col-md backend-cp-collapsible">
 							<div class="box-usace">
 								<h2 class="box-header-striped">
-									<span class="titleLabel title">LD Gate Summary - PHP Data API V3.1</span>
+									<span class="titleLabel title">LD Gate Summary PHP</span>
 									<span class="rss"></span>
 								</h2>
 								<div class="box-content" style="background-color:white;margin:auto">
 									<div class="content">
 										<!-- Box Content Here -->
-                                        <span>Last Modified:<?php echo " " . $current_date_time //. " " . date_default_timezone_get(); ?></span><br>
-										<!-- <span>Phone: 800-432-1208</span>  -->
                                         <span><h3><a href='ld_gate_summary.php'>Switch to PHP</a></h3></span> 
                                         <span><h3><a href='ld_gate_summary.html?cda=internal'>Switch to Cloud Internal</a></h3></span>
                                         <span><h3><a href='ld_gate_summary.html?cda=public'>Switch to Cloud Public</a></h3></span>
@@ -81,20 +71,14 @@ $current_date_time   = date("Y-m-d H:i", $time);
 					</div>
                     <div id="loading_ld_gate_summary" style="display: none;"><img src="../../images/loading4.gif" style='height: 50px; width: 50px;' alt="Loading..." /></div>
                     <div id="table_container_ld_gate_summary"></div>
-                    <script src="ld_gate_summary3.js"></script>
-                    <!-- <div class="alert">
-                        <strong>Version V2.0 - May 02, 2024</strong> - This report was build using PHP, JSON, CWMS and JavaScript, no coldfusion schema was used<br>
-                        <strong>Version V3.0 - June 01, 2024</strong> - gage_control.json was used<br> 
-                        <strong>Version V3.1 - June 06, 2024</strong> - php_data_api was used<br>
-                    </div> -->
+                    <script src="ld_gate_summary.js"></script>
                     <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                     <div class="page-content">
                         <sidebar id="sidebar">
                         <!--Side bar content populated here by JavaScript Tag at end of body -->
                         </sidebar>
                         <div id="topPane" class="col-md backend-cp-collapsible">
-                            <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                            <!-- <div class="box-usace">
+                            <div class="box-usace">
                                 <h2 class="box-header-striped">
                                     <span class="titleLabel title">Note</span>
                                     <span class="rss"></span>
@@ -104,8 +88,7 @@ $current_date_time   = date("Y-m-d H:i", $time);
                                         
                                     </div>
                                 </div>
-                            </div> -->
-                            <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                            </div>
                         </div>
                     </div>
                 </div>

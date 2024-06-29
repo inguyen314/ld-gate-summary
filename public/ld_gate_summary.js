@@ -3,13 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadingIndicatorGageData = document.getElementById('loading_ld_gate_summary');
     loadingIndicatorGageData.style.display = 'block';
 
-    console.log('Loading Version 3 with gage_control3.json');
+    // Gage control json file
+    const jsonFileURL = 'https://wm.mvs.ds.usace.army.mil/php_data_api/public/json/gage_control.json';
+    console.log('jsonFileURL: ', jsonFileURL);
 
-    // Gage control json file URL
-    const jsonFilePath = '../../gage_data/public/json/gage_control3.json';
-    
     // Fetch JSON data from the specified URL
-    fetch(jsonFilePath)
+    fetch(jsonFileURL)
         .then(response => {
             // Check if response is OK, if not, throw an error
             if (!response.ok) {
