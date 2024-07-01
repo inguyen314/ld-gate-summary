@@ -1,5 +1,5 @@
-<?php require_once('../private/initialize.php'); 
-//require_login();
+<?php
+require_once('../../../php_data_api/private/initialize.php'); 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -27,6 +27,3 @@ $roll = $_GET['roll'];
 $location_ids = find_ld_gate($db, $pool, $tw, $hinge, $taint, $roll);
 echo json_encode($location_ids);
 ?>
-	
-
-                            
