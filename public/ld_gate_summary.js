@@ -139,7 +139,7 @@ function fetchAndUpdateData(project_id, tsid_pool, tsid_tw, tsid_hinge, tsid_tai
     const queryString = Object.keys(dataToSend).map(key => key + '=' + dataToSend[key]).join('&');
 
     // Make an AJAX request to the PHP script, passing all the variables
-    const url = `get_ld_gate.php?${queryString}`;
+    const url = `https://wm.mvs.ds.usace.army.mil/php_data_api/public/get_ld_gate_summary.php?${queryString}`;
 
     fetch(url)
         .then(response => response.json())
