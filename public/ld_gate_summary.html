@@ -40,9 +40,9 @@
             </header>
             <div class="page-wrap">
                 <div class="container-fluid">
-                <div id="breadcrumbs">
+                    <div id="breadcrumbs">
                     </div>
-                    <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
                     <div class="page-content">
 						<div id="topPane" class="col-md backend-cp-collapsible">
 							<div class="box-usace">
@@ -52,31 +52,68 @@
 								</h2>
 								<div class="box-content" style="background-color:white;margin:auto">
 									<div class="content">
-										<!-- Box Content Here -->
-                                        <span><h3><a href='ld_gate_summary.php'>Switch to PHP</a></h3></span> 
-                                        <span><h3><a href='ld_gate_summary.html?cda=internal'>Switch to Cloud Internal</a></h3></span>
-                                        <span><h3><a href='ld_gate_summary.html?cda=public'>Switch to Cloud Public</a></h3></span>
+                                        <script>
+                                            // Calculate the document root
+                                            const documentRoot = window.location.protocol + "//" + window.location.host + "/";
+
+                                            // Check if the document root matches the specified URL
+                                            if (documentRoot === "https://wm.mvs.ds.usace.army.mil/") {
+                                                // Select the div with the class 'content'
+                                                const contentDiv = document.querySelector('.content');
+                                                
+                                                if (contentDiv) {
+                                                    // Create the first h3 element with a link
+                                                    const h3_1 = document.createElement('h3');
+                                                    const link1 = document.createElement('a');
+                                                    link1.href = "ld_gate_summary.php";
+                                                    link1.textContent = "Switch to PHP";
+                                                    h3_1.appendChild(link1);
+                                                    contentDiv.appendChild(h3_1);
+
+                                                    // Create the second h3 element with a link
+                                                    const h3_2 = document.createElement('h3');
+                                                    const link2 = document.createElement('a');
+                                                    link2.href = "ld_gate_summary.html?cda=internal";
+                                                    link2.textContent = "Switch to Cloud Internal";
+                                                    h3_2.appendChild(link2);
+                                                    contentDiv.appendChild(h3_2);
+
+                                                    // Create the third h3 element with a link
+                                                    const h3_3 = document.createElement('h3');
+                                                    const link3 = document.createElement('a');
+                                                    link3.href = "ld_gate_summary.html?cda=public";
+                                                    link3.textContent = "Switch to Cloud Public";
+                                                    h3_3.appendChild(link3);
+                                                    contentDiv.appendChild(h3_3);
+                                                } else {
+                                                    console.error('No element with class "content" found.');
+                                                }
+                                            } else {
+                                                console.log('Document root does not match the specified URL.');
+                                            }
+                                        </script>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+
                     <script>
                         var cda = urlParams.get('cda');
                         console.log('cda: ', cda);
                         // Append the 'cda' value to the text content of the <span>
                             var spanElement = document.querySelector('.titleLabel.title');
                         if (cda && spanElement) {
-                            spanElement.textContent += ' ' + cda;
+                            spanElement.textContent += ' ' + ' ';
                         }
                     </script>
+
                     <div id="loading_ld_gate_summary" style="display: none;"><img src="../../images/loading4.gif" style='height: 50px; width: 50px;' alt="Loading..." /></div>
                     <div id="table_container_ld_gate_summary"></div>
                     <script src="ld_gate_summary_cda.js"></script>
-                    <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-                    <div class="page-content">
+                    
+                    <!-- <div class="page-content">
                         <sidebar id="sidebar">
-                        <!--Side bar content populated here by JavaScript Tag at end of body -->
                         </sidebar>
                         <div id="topPane" class="col-md backend-cp-collapsible">
                             <div class="box-usace">
@@ -91,7 +128,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+
                 </div>
             </div>
                 <button id="returnTop" title="Return to Top of Page">Top</button>
